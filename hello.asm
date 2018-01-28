@@ -1,3 +1,5 @@
+extern mmap64
+
 SECTION  .data
 
   msg: db "Hello World",10
