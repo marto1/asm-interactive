@@ -1,3 +1,4 @@
 set disassembly-flavor intel
+set compile-args -masm=intel -O0 -gdwarf-4 -fPIE -Wall  -Wno-implicit-function-declaration -Wno-unused-but-set-variable -Wno-unused-variable -fno-stack-protector
 break _start
 run
