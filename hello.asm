@@ -1,16 +1,17 @@
+extern open
 extern mmap64
 
-SECTION  .data
 
-  msg: db "Hello World",10
- 
 SECTION .text
 	global _start
 _start:
-        mov    eax, 6
-        mov    eax, 1
-	mov    ebx, 20
-	xchg   eax, ebx
-	mov    ebx, 0
-        xor    ebx, ebx
+	push 2
+	push "inject.o"
+	call open
+	;; mmap
+	;; jmp addr ; jmp to mmap-ed instructions here
+	;; 
+	jmp    _start
+        xor    ebx, ebx 	; 0
+	mov	eax, 1
         int    0x80
