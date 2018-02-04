@@ -43,12 +43,24 @@ _start:
 	mov eax, dword [stat + STAT.st_size]
 	mov DWORD [fsize], eax 	; assign file size
 
-	mov rdi, r14
-	mov rax, 3 ; close
+	mov rdi, 0
+	mov rsi, QWORD [fsize]
+	mov rdx, 7
+	mov r10, 1
+	mov r8,  r14
+	xor r9, r9
+	mov rax, 9	; mmap
 	syscall
+	
+
+	mov rdi, r14
+	mov rax, 3 	; close
+	syscall
+
+	
 	;; mov eax, dword [stat + STAT.st_size]
 	;; mov rbx, rax
-	;; mov rax, 9	; mmap
+
 	;; mov 
 	;; syscall
 	;; mmap
