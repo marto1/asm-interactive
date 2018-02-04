@@ -25,7 +25,7 @@ struc STAT
 endstruc
 
 SECTION .data
-fname:	db "inject.o", 0
+fname:	db "inject", 0
 SECTION .text
 	global _start
 _start:
@@ -41,6 +41,7 @@ _start:
 	syscall
 
 	mov eax, dword [stat + STAT.st_size]
+	add eax, 20 		; return to _start extra space
 	mov DWORD [fsize], eax 	; assign file size
 
 	mov rdi, 0
@@ -52,9 +53,15 @@ _start:
 	mov rax, 9	; mmap
 	syscall
 
+	mov r15, rax 	; preserve address of mmap-ed
+
 	mov rdi, r14
 	mov rax, 3 	; close
 	syscall
+
+	;; ensure last instruction is jmp _start TODO
+	
+	jmp r15 	; jmp to address
 
 	;; jmp addr ; jmp to mmap-ed instructions here
 	;; jmp    _start
