@@ -1,7 +1,4 @@
-SECTION .text
-	global _start
-_start:
-	nop
+BITS 64
 injectit:
-	mov	eax, 1
+	mov	rax, 42
 	ret

@@ -51,19 +51,11 @@ _start:
 	xor r9, r9
 	mov rax, 9	; mmap
 	syscall
-	
 
 	mov rdi, r14
 	mov rax, 3 	; close
 	syscall
 
-	
-	;; mov eax, dword [stat + STAT.st_size]
-	;; mov rbx, rax
-
-	;; mov 
-	;; syscall
-	;; mmap
 	;; jmp addr ; jmp to mmap-ed instructions here
 	;; jmp    _start
         xor    	rbx, rbx 	; 0
