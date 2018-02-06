@@ -1,5 +1,6 @@
 extern mmap64
 
+
 section .bss
     stat resb 144
     fsize resb 4
@@ -58,8 +59,10 @@ _start:
 	mov rdi, r14
 	mov rax, 3 	; close
 	syscall
-
+	
 	;; ensure last instruction is jmp _start TODO
+	mov r14, QWORD [fsize]
+dev:	mov QWORD [r15 + r14 - 20], 0x90
 	
 	jmp r15 	; jmp to address
 
