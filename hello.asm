@@ -42,7 +42,6 @@ _start:
 	syscall
 
 	mov eax, dword [stat + STAT.st_size]
-	add eax, 20 		; return to _start extra space
 	mov DWORD [fsize], eax 	; assign file size
 
 	mov rdi, 0
@@ -64,11 +63,11 @@ _start:
 	mov r14, QWORD [fsize]
 
 	;; ensure last instruction is jmp _start
-	mov QWORD [r15 + r14 - 20], 0x90 ; nop
-	mov QWORD [r15 + r14 - 19], 0xB8 ; mov eax, _start
-	mov QWORD [r15 + r14 - 18], QWORD _start
-	mov QWORD [r15 + r14 - 14], 0xFF ; jmp rax
-	mov QWORD [r15 + r14 - 13], 0xE0
+	mov QWORD [r15 + r14 - 8], 0x90 ; nop
+	mov QWORD [r15 + r14 - 7], 0xB8 ; mov eax, _start
+	mov QWORD [r15 + r14 - 6], QWORD _start
+	mov QWORD [r15 + r14 - 2], 0xFF ; jmp rax
+	mov QWORD [r15 + r14 - 1], 0xE0
 
 	
 dev:	jmp r15 	; jmp to address
