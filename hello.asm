@@ -59,13 +59,20 @@ _start:
 	mov rdi, r14
 	mov rax, 3 	; close
 	syscall
-	
-	;; ensure last instruction is jmp _start TODO
-	mov r14, QWORD [fsize]
-dev:	mov QWORD [r15 + r14 - 20], 0x90
-	
-	jmp r15 	; jmp to address
 
+
+	mov r14, QWORD [fsize]
+
+	;; ensure last instruction is jmp _start
+	mov QWORD [r15 + r14 - 20], 0x90 ; nop
+	mov QWORD [r15 + r14 - 19], 0xB8 ; mov eax, _start
+	mov QWORD [r15 + r14 - 18], QWORD _start
+	mov QWORD [r15 + r14 - 14], 0xFF ; jmp rax
+	mov QWORD [r15 + r14 - 13], 0xE0
+
+	
+dev:	jmp r15 	; jmp to address
+	
 	;; jmp addr ; jmp to mmap-ed instructions here
 	;; jmp    _start
         xor    	rbx, rbx 	; 0
