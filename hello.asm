@@ -65,7 +65,7 @@ _start:
 	;; ensure last instruction is jmp _start
 	mov QWORD [r15 + r14 - 8], 0x90 ; nop
 	mov QWORD [r15 + r14 - 7], 0xB8 ; mov eax, _start
-	mov QWORD [r15 + r14 - 6], QWORD _start
+	mov QWORD [r15 + r14 - 6], QWORD dev
 	mov QWORD [r15 + r14 - 2], 0xFF ; jmp rax
 	mov QWORD [r15 + r14 - 1], 0xE0
 
