@@ -44,10 +44,10 @@ _start:
 	mov eax, dword [stat + STAT.st_size]
 	mov DWORD [fsize], eax 	; assign file size
 
-	mov rdi, 0
+	mov rdi, 0	; kernel allocates address
 	mov rsi, QWORD [fsize]
-	mov rdx, 7
-	mov r10, 1
+	mov rdx, 7	; PROT_READ|PROT_WRITE|PROT_EXEC
+	mov r10, 2	; private
 	mov r8,  r14
 	xor r9, r9
 	mov rax, 9	; mmap
