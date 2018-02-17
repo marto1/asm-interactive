@@ -61,13 +61,10 @@ _start:
 
 
 	mov r14, QWORD [fsize]
-
-	;; ensure last instruction is jmp _start
-	mov QWORD [r15 + r14 - 8], 0x90 ; nop
-	mov QWORD [r15 + r14 - 7], 0xB8 ; mov eax, _start
-	mov QWORD [r15 + r14 - 6], QWORD dev
-	mov QWORD [r15 + r14 - 2], 0xFF ; jmp rax
-	mov QWORD [r15 + r14 - 1], 0xE0
+	;; ensure last instruction is register jump to dev
+	mov QWORD [r15 + r14 - 8], QWORD 0xB8 ; mov eax, dev
+	mov QWORD [r15 + r14 - 7], QWORD dev
+	mov QWORD [r15 + r14 - 3], 0xE0FF ; jmp rax
 
 	
 dev:	jmp r15 	; jmp to address
