@@ -66,11 +66,8 @@ _start:
 	mov QWORD [r15 + r14 - 7], QWORD dev
 	mov QWORD [r15 + r14 - 3], 0xE0FF ; jmp rax
 
-	
-dev:	jmp r15 	; jmp to address
-	
-	;; jmp addr ; jmp to mmap-ed instructions here
-	;; jmp    _start
-        xor    	rbx, rbx 	; 0
-	mov	rax, 1
-        int	0x80
+dev:	jmp r15 	; jmp to mmap-ed file
+
+        xor    	rdi, rdi 	; 0
+	mov	rax, 60
+	syscall
