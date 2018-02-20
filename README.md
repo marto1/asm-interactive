@@ -22,8 +22,8 @@ Demo
 [![demo](https://asciinema.org/a/B33dCtFc9QvRxIY8Lfxkzl9eR.png)](https://asciinema.org/a/B33dCtFc9QvRxIY8Lfxkzl9eR?autoplay=1)
 
 
-TODOS
-
+TODOs
+=====
 
 * TODO Detailed installation instructions 
 * TODO Multiline command
