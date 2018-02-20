@@ -20,3 +20,13 @@ Demo
 ====
 
 [![demo](https://asciinema.org/a/B33dCtFc9QvRxIY8Lfxkzl9eR.png)](https://asciinema.org/a/B33dCtFc9QvRxIY8Lfxkzl9eR?autoplay=1)
+
+
+TODOS
+
+
+* TODO Detailed installation instructions 
+* TODO Multiline command
+* TODO Inject without inject file
+* TODO Port to other architectures
+* TODO Self contained(no nasm and/or gdb)
