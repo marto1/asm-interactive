@@ -25,9 +25,10 @@ Demo
 TODOs
 =====
 
+* TODO Inject without inject file
+* TODO Add option to use location in memory instead of r15 for loop
 * TODO Detailed installation instructions 
 * TODO Multiline command
 * TODO --raw flag to pass machine code directly
-* TODO Inject without inject file
 * TODO Port to other architectures
 * TODO Self contained(no nasm and/or gdb)
