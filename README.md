@@ -27,6 +27,7 @@ TODOs
 
 * TODO Detailed installation instructions 
 * TODO Multiline command
+* TODO --raw flag to pass machine code directly
 * TODO Inject without inject file
 * TODO Port to other architectures
 * TODO Self contained(no nasm and/or gdb)
